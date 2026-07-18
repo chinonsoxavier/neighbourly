@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "../shared/header";
-import Footer from "../shared/footer";
+import "../../app/globals.css";
+import { Header } from "../shared/header";
+import { Footer } from "../shared/footer";
+// import Header from "../shared/header";
+// import Footer from "../shared/footer";
 
 const inter = Inter({
   variable: "--font-inter",
