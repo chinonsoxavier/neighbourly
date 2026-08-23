@@ -1,63 +1,52 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/providers/theme-provider";
-import { QueryProvider } from "@/providers/query-provider";
-import { OfflineBanner } from "@/components/shared/offline-banner";
+"use client";
+
+import { Sidebar } from "@/components/shared/sidebar";
+import { Header } from "@/components/shared/header";
+import { MobileNav } from "@/components/shared/mobile-nav";
+import { RightPanel } from "@/components/shared/right-panel";
+import { AppModals } from "@/components/modals";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-sans",
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Neighborly — Your Neighborhood, Stronger Together",
-    template: "%s | Neighborly",
-  },
-  description:
-    "Report incidents, connect with neighbors, and build the community you deserve. The civic platform that turns passive residents into active community builders.",
-  keywords: [
-    "community",
-    "neighborhood",
-    "civic",
-    "incidents",
-    "safety",
-    "local",
-    "reports",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "Neighborly",
-    title: "Neighborly — Your Neighborhood, Stronger Together",
-    description:
-      "Report incidents, connect with neighbors, and build the community you deserve.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Neighborly — Your Neighborhood, Stronger Together",
-    description:
-      "Report incidents, connect with neighbors, and build the community you deserve.",
-  },
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col font-sans">
-        <ThemeProvider>
-          <QueryProvider>
-            <OfflineBanner />
-            <main className="flex-1 flex flex-col">{children}</main>
-          </QueryProvider>
-        </ThemeProvider>
-      </body>
+     <html lang="en" className={`${jakarta.variable} h-full antialiased scroll-smooth`}>
+      <body className="min-h-full flex flex-col font-sans bg-[#FBF8F2] text-[#1F1F24]">
+       
+    <div className="flex h-screen overflow-hidden bg-[radial-gradient(circle_at_20%_0%,#fbf2ff_0,transparent_30%),#faf6fd] dark:bg-[#1a1220]">
+      {/* Global Application Modals */}
+      <AppModals />
+
+      {/* Persistent Left Sidebar */}
+      <Sidebar />
+
+      {/* Main Content Shell */}
+      <div className="flex flex-1 flex-col overflow-hidden min-w-0">
+        <Header />
+
+        <div className="flex flex-1 overflow-hidden">
+          {/* Scrollable Center Page Content */}
+          <main className="flex-1 overflow-y-auto pb-24 lg:pb-8 min-w-0">
+            <div className="mx-aut w-full ax-w-4xl px-4 py-5 lg:px-6 lg:py-6">
+              {children}
+            </div>
+          </main>
+
+          {/* Persistent Right Panel on Wide Desktops */}
+          <RightPanel className="border-l border-border/80 bg-card/40 px-4 py-5 overflow-y-auto hidden xl:block" />
+        </div>
+      </div>
+
+      {/* Mobile Bottom Navigation */}
+      <MobileNav />
+    </div>
+    </body>
     </html>
   );
 }
