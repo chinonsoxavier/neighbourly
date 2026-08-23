@@ -1,7 +1,7 @@
 "use client";
 
-import { useAppStore, type Poll } from "@/store";
-import { neighborById } from "@/lib/data";
+import { useAppStore, } from "@/store";
+import { neighborById, Poll } from "@/lib/data";
 import { Vote, Check, Users, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 

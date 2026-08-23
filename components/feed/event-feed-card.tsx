@@ -1,9 +1,10 @@
 "use client";
 
-import { useAppStore, type EventItem } from "@/store";
+import { useAppStore, } from "@/store";
 import { Calendar, MapPin, Users, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { EventItem } from "@/lib/data";
 
 interface EventFeedCardProps {
   event: EventItem;

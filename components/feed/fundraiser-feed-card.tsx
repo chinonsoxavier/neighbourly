@@ -1,7 +1,7 @@
 "use client";
 
-import { useModalStore, type Fundraiser } from "@/store";
-import { neighborById } from "@/lib/data";
+import { useModalStore, } from "@/store";
+import { Fundraiser, neighborById } from "@/lib/data";
 import { Heart, Users, Clock, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 

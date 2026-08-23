@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useAppStore, type Incident } from "@/store";
-import { neighborById } from "@/lib/data";
+import { useAppStore,  } from "@/store";
+import { Incident, neighborById } from "@/lib/data";
 import {
   AlertTriangle,
   Clock,
