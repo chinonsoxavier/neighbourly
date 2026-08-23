@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { StepIndicator } from "@/components/safety/category-grid";
+// import { StepIndicator } from "@/components/safety/category-grid";
 import {
   Flame,
   Heart,
@@ -123,7 +123,7 @@ export default function ReportPage() {
       {step === 1 && (
         <div className="space-y-4">
           <h2 className="text-lg font-semibold">Where is this happening?</h2>
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 h-56 flex items-center justify-center">
+          <div className="rounded-2xl border border-border bg-linear-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 h-56 flex items-center justify-center">
             <div className="text-center">
               <MapPin className="size-8 text-teal-500 mx-auto mb-2 animate-bounce" />
               <p className="text-sm text-muted-foreground">Drag pin to set exact location</p>
