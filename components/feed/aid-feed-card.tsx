@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { type AidRequest } from "@/store";
+import { type AidRequest } from "@/lib/data";
 import { HandHeart, Clock, MapPin, CheckCircle2, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
